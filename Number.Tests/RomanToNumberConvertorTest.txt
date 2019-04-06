@@ -1,0 +1,59 @@
+using System;
+using Xunit;
+
+namespace Number.Tests
+{
+    public class RomanToNumberConvertorTest
+    {
+        [Theory]
+        [InlineData(1, "I")]
+        [InlineData(2, "II")]
+        [InlineData(3, "III")]
+        [InlineData(4, "IV")]
+        [InlineData(5, "V")]
+        [InlineData(6, "VI")]
+        [InlineData(7, "VII")]
+        [InlineData(8, "VIII")]
+        [InlineData(9, "IX")]
+        [InlineData(10, "X")]
+        [InlineData(11, "XI")]
+        [InlineData(20, "XX")]
+        [InlineData(58, "LVIII")]
+        [InlineData(100, "C")]
+        [InlineData(500, "D")]
+        [InlineData(998, "CMXCVIII")]
+        [InlineData(1000, "M")]
+        [InlineData(3999, "MMMCMXCIX")]
+        public void Arabic_WhenConvertIntegerValue_ShouldReturnRomanString(int expected, string value)
+        {
+            // Arrange
+            RomanToNumberConvertor roman = new RomanToNumberConvertor();
+            //Act
+            int actual = roman.RomanToNumber(value);
+            //Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void Arabic_WhenCantConvertValue_ShouldRiseAnException()
+        {
+            // Arrange
+            RomanToNumberConvertor roman = new RomanToNumberConvertor();
+            //Act
+            Action actual = () => roman.RomanToNumber("XXXX");
+            //Assert
+            Assert.Throws<ArgumentException>(actual);
+        }
+
+        [Fact]
+        public void Arabic_WhenCantConvertValue_ShouldN()
+        {
+            // Arrange
+            RomanToNumberConvertor roman = new RomanToNumberConvertor();
+            //Act
+            int actual = roman.RomanToNumber("N");
+            //Assert
+            Assert.Equal(0, actual);
+        }
+    }
+}

@@ -22,6 +22,8 @@ namespace Number.Tests
         [InlineData("C", 100)]
         [InlineData("D", 500)]
         [InlineData("CMXCVIII", 998)]
+        [InlineData("M", 1000)]
+        [InlineData("(X)", 10000)]
         public void Arabic_WhenConvertIntegerValue_ShouldReturnRomanString(string expected, int value)
         {
             // Arrange
@@ -29,6 +31,17 @@ namespace Number.Tests
             //Act
             string actual = roman.ToRoman(value);
             //Assert
+            Assert.Equal(expected, actual);
+        }
+        [Fact]
+        public void Arabic_WhenConvertIntegerValue_ShouldReturnRomanStringOver4000()
+        {
+            // Arrange
+            RomanNumerals roman = new RomanNumerals();
+            //Act
+            string actual = roman.ToRoman(4000);
+            //Assert
+            var expected = "(IV)";
             Assert.Equal(expected, actual);
         }
 
@@ -60,6 +73,8 @@ namespace Number.Tests
         [InlineData(100, "C")]
         [InlineData(500, "D")]
         [InlineData(998, "CMXCVIII")]
+        [InlineData(1000, "M")]
+        [InlineData(10000, "(X)")]
         public void Roman_WhenConvertIntegerValue_ShouldReturnArabic(int expected, string value)
         {
             // Arrange
