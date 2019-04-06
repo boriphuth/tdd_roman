@@ -11,4 +11,6 @@
         "source.organizeImports": true
     },
     "editor.snippetSuggestions": "top",
+    "coverage-gutters.showGutterCoverage": true,
+    "coverage-gutters.showLineCoverage": false
 }
