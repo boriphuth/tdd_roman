@@ -9,10 +9,10 @@ namespace Number
         // Maps letters to numbers.
         private Dictionary<char, int> CharValues = null;
         // Map digits to letters.
-        private string[] ThouLetters = { "", "M", "MM", "MMM" };
-        private string[] HundLetters = { "", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" };
-        private string[] TensLetters = { "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" };
-        private string[] OnesLetters = { "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
+        private readonly string[] ThouLetters = { "", "M", "MM", "MMM" };
+        private readonly string[] HundLetters = { "", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" };
+        private readonly string[] TensLetters = { "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" };
+        private readonly string[] OnesLetters = { "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
 
         public RomanNumerals()
         {

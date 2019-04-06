@@ -27,7 +27,7 @@ namespace Number.Tests
             // Arrange
             RomanNumerals roman = new RomanNumerals();
             //Act
-            string actual = roman.ToRoman(value); //arabic.ConvertToRoman(value, _roman);
+            string actual = roman.ToRoman(value);
             //Assert
             Assert.Equal(expected, actual);
         }
@@ -41,6 +41,33 @@ namespace Number.Tests
             Action actual = () => roman.ToRoman(-1);
             //Assert
             Assert.Throws<ArgumentException>(actual);
+        }
+
+        [Theory]
+        [InlineData(1, "I")]
+        [InlineData(2, "II")]
+        [InlineData(3, "III")]
+        [InlineData(4, "IV")]
+        [InlineData(5, "V")]
+        [InlineData(6, "VI")]
+        [InlineData(7, "VII")]
+        [InlineData(8, "VIII")]
+        [InlineData(9, "IX")]
+        [InlineData(10, "X")]
+        [InlineData(11, "XI")]
+        [InlineData(20, "XX")]
+        [InlineData(58, "LVIII")]
+        [InlineData(100, "C")]
+        [InlineData(500, "D")]
+        [InlineData(998, "CMXCVIII")]
+        public void Roman_WhenConvertIntegerValue_ShouldReturnArabic(int expected, string value)
+        {
+            // Arrange
+            RomanNumerals roman = new RomanNumerals();
+            //Act
+            int actual = roman.ToArabic(value);
+            //Assert
+            Assert.Equal(expected, actual);
         }
     }
 }
